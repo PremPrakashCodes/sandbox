@@ -1,0 +1,23 @@
+{
+  "name": "sandbox",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Sandbox Monorepo with Next.js, FastAPI and SDK",
+  "workspaces": [
+    "apps/*",
+    "packages/sdk/typescript"
+  ],
+  "scripts": {
+    "dev:frontend": "cd apps/frontend && npm run dev",
+    "dev:backend": "cd apps/backend && uv run sandbox",
+    "dev:sdk": "cd packages/sdk/typescript && npm run dev",
+    "dev": "concurrently -n \"FRONTEND,BACKEND\" -c \"blue,green\" \"npm run dev:frontend\" \"npm run dev:backend\"",
+    "build:frontend": "cd apps/frontend && npm run build",
+    "build:sdk": "cd packages/sdk/typescript && npm run build",
+    "build": "npm run build:sdk && npm run build:frontend",
+    "lint:frontend": "cd apps/frontend && npm run lint"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}
