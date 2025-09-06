@@ -12,12 +12,16 @@ class Settings(BaseSettings):
     port: int = 8000
     
     # CORS settings
-    cors_origins: list[str] = ["http://localhost:3000"]
+    cors_origins: list[str] = ["http://localhost:3000", "http://localhost:8000"]
     
-    # Database settings (optional for future use)
-    database_url: Optional[str] = None
+    # Database settings
+    database_url: str = "postgresql://postgres:password@postgres:5432/sandbox"
+    redis_url: str = "redis://redis:6379"
     
-    model_config = SettingsConfigDict(env_file=".env", env_file_encoding="utf-8")
+    model_config = SettingsConfigDict(
+        env_file=".env",
+        env_file_encoding="utf-8"
+    )
 
 
 settings = Settings()

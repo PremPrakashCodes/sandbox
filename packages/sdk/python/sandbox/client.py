@@ -12,7 +12,7 @@ class HealthResponse(BaseModel):
     status: str
 
 
-class SandboxClient:
+class Sandbox:
     def __init__(self, base_url: str = "http://localhost:8000", timeout: float = 30.0):
         self.base_url = base_url.rstrip("/")
         self.timeout = timeout
@@ -44,7 +44,7 @@ class SandboxClient:
         return response.json()
 
 
-class AsyncSandboxClient:
+class AsyncSandbox:
     def __init__(self, base_url: str = "http://localhost:8000", timeout: float = 30.0):
         self.base_url = base_url.rstrip("/")
         self.timeout = timeout

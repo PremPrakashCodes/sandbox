@@ -70,22 +70,22 @@ The Next.js frontend runs on http://localhost:3000 by default.
 ## Python SDK Usage
 
 ```python
-from sandbox import SandboxClient
+from sandbox import Sandbox
 
 # Sync client
-with SandboxClient(base_url="http://localhost:8000") as client:
+with Sandbox(base_url="http://localhost:8000") as client:
     response = client.get_root()
     print(response.message)
-    
+
     health = client.health_check()
     print(health.status)
 
 # Async client
 import asyncio
-from sandbox import AsyncSandboxClient
+from sandbox import AsyncSandbox
 
 async def main():
-    async with AsyncSandboxClient(base_url="http://localhost:8000") as client:
+    async with AsyncSandbox(base_url="http://localhost:8000") as client:
         response = await client.get_root()
         print(response.message)
 
